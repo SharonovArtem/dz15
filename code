@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace jun1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            double minimalDegree;
+            double basisDegree = 2;
+            double randomNumber = random.Next(0, 20);
+
+            for (int i = 1; i <= randomNumber; i++)
+            {
+                minimalDegree = Math.Pow(basisDegree, i);
+
+                if (minimalDegree > randomNumber)
+                {
+                    Console.WriteLine(randomNumber.ToString());
+                    Console.WriteLine(i);
+                    Console.WriteLine(minimalDegree.ToString());
+                    break;
+                }
+            }
+        }
+    }
+}
