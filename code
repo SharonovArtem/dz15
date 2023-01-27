@@ -12,25 +12,24 @@ namespace jun1
         static void Main(string[] args)
         {
             Random random = new Random();
-            int i;
+            int startNumber = 2;
+            int minimalDegree;
             int basisDegree = 2;
-            int maxNumber = 20;
-            double randomNumber = random.Next(0, maxNumber);
+            int maxNumber = 50;
+            int degree = 1;
+            int randomNumber = random.Next(0, maxNumber);
 
-            for (int minimalDegree = 1; minimalDegree <= randomNumber; minimalDegree++)
+            while (startNumber < randomNumber)
             {
-                i = (int)Math.Pow(basisDegree, minimalDegree);
-
-                if (i > randomNumber)
-                {
-                    Console.WriteLine(randomNumber);
-                    Console.WriteLine(i);
-                    Console.WriteLine(minimalDegree);
-                    break;
-                }
-                
+                startNumber *= basisDegree;
+                degree++;
             }
-                
+
+            minimalDegree = startNumber;
+
+            Console.WriteLine(degree);
+            Console.WriteLine(randomNumber);
+            Console.WriteLine(minimalDegree);
         }
     }
 }
